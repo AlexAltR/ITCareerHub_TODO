@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <div class="app-todo">
+        <div class="header">
+            <h2>Среда</h2>
+            <p>3 сентября</p>
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Поиск">
+                <button id="search-btn"><span class="search-field__icon material-symbols-rounded"></span></button>
+            </div>
+        </div>
+        <div class="new-entry">
+            <h2>Новая запись</h2>
+            <form id="addNewEntryForm">
+                <div class="dataEntry">
+                    <input type="text" id="descriptionEntry">
+                    <input type="date" id="dataEntry">
+                </div>
+                <div class="buttonsForm">
+                    <button type="submit">Отправить</button>
+                    <button type="reset">Очистить</button>
+                </div>
+            </form>
+        </div>
+        <div class="todo-list">
+            <h2>Список дел</h2>
+            <div class="filter">
+                <button id="allTasks" class="active">Все</button>
+                <button id="activeTasks">Активные</button>
+                <button id="completedTasks">Завершенные</button>
+            </div>
+            <ul id="tasks"></ul>
+        </div>
+        <div class="footer">
+            <button id="editButton" class="edit-button">
+                <span class="material-symbols-rounded"></span>
+            </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
