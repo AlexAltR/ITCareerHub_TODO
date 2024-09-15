@@ -1,14 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: var(--color-main);
+    font-family: var(--font-family);
 }
 
 :root {
     --color-main: #1D1B1E;
+    --font-family: "Open Sans", sans-serif;
+    --second-family: "Roboto", sans-serif;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 20px;
 }
 
 body {
@@ -17,9 +26,256 @@ body {
 }
 
 .app-todo {
-    background-color: #FFFBFF;
+    background-color: #fffbff;
     padding: 24px 16px 16px 16px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    width: 428px;
 }
-/*  */
+
+.flex-direction-column-gap-16 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-info p {
+    font-size: 15px;
+}
+
+.search-box {
+    display: flex;
+}
+
+.search-box input,
+.search-box button {
+    background-color: rgba(103, 80, 164, 0.05);
+    border: none;
+    outline: none;
+}
+
+.search-box input {
+    flex-basis: 85%;
+    padding: 12px 0px 12px 20px;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+}
+
+.search-box button {
+    flex-basis: 15%;
+    padding-right: 20px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+input[type="text"]::placeholder,
+input[type="date"]::placeholder {
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.03em;
+    color: #49454f;
+}
+
+/* Работа с блоком new-entry */
+
+#addNewEntryForm {
+    background-color: #f7f2fa;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.dataEntry input {
+    border-radius: 4px;
+    outline: none;
+    padding: 16px;
+    background-color: #f7f2fa;
+    border: 1px solid #79747e;
+}
+
+.buttonsForm {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
+
+.buttonsForm button {
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.01em;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #79747e;
+    transition: 0.3s;
+}
+
+.buttonsForm button[type="submit"] {
+    background-color: #6750a4;
+    color: #fff;
+}
+
+.buttonsForm button[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+.buttonsForm button[type="reset"] {
+    background-color: #f7f2fa;
+    color: #6750a4;
+}
+
+
+/* Работаем с разделом todo-list */
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-right: 2px solid #888;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: #1d1b20;
+    border: 1px solid #79747e;
+}
+
+.tab:first-child {
+    border-right: none;
+    border-radius: 100px 0 0 100px;
+}
+
+.tab:last-child {
+    border-left: none;
+    border-radius: 0 100px 100px 0;
+}
+
+.tab.active {
+    background-color: #e8def8;
+    position: relative;
+}
+
+/* .tab.active::before {
+    content: "✔";
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: black;
+} */
+
+#tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+}
+
+#tasks li {
+    border-radius: 16px;
+    background: rgba(103, 80, 164, 0.05);
+}
+
+#tasks li label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px 8px 13px;
+}
+
+#tasks li label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+/* Скрываем стандартный чекбокс */
+.custom-checkbox input {
+    display: none;
+}
+
+/* Стиль для кастомного чекбокса */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Отступ между чекбоксом и текстом */
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 0;
+    /* Отступы для чекбокса */
+}
+
+/* Стиль кастомного чекбокса (фон, размер) */
+.custom-checkbox span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #e8def8;
+    /* Светло-фиолетовый фон */
+    border-radius: 4px;
+    /* Скругленные углы */
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+/* Когда чекбокс выбран */
+.custom-checkbox input:checked+span {
+    background-color: #6750a4;
+    /* Темно-фиолетовый фон для выбранного чекбокса */
+}
+
+/* Галочка внутри кастомного чекбокса */
+.custom-checkbox input:checked+span::after {
+    content: "✔";
+    /* Галочка */
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Стиль для текста задачи */
+.custom-checkbox div {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-checkbox div p {
+    margin: 0;
+    /* Убираем отступы у абзацев */
+    font-size: 16px;
+    color: #1d1b20;
+}
+
+/* Стиль для зачеркнутого текста (для завершенных задач) */
+.custom-checkbox input:checked+span+div p:last-child {
+    text-decoration: line-through;
+    color: #79747e;
+    /* Серая подсветка для завершенных задач */
+}
